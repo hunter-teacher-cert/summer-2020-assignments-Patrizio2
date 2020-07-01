@@ -54,20 +54,18 @@ class Life{
     */
     public static int countNeighbours(char[][] board, int r, int c){
     int count = 0;
+    if (r>=0 && r<board.length && c>=0 && c<board[r].length){
       for (int row = (r-1); row < (r+1); row++) {
     	    for (int col = (c-1); c < (c+1) ; c++) {
-    		      if !(row = r && col = c){
+    		      if (!(row == r&& col == c)){
                  count = count + 1;
               }
     	    }
     	}
 
-
-  return count;
-
-
-
     }
+    return count;
+  }
 
     /*
       given a board and a cell, determine, based on the rules for
@@ -78,7 +76,8 @@ class Life{
     public static char getNextGenCell(char[][] board,int r, int c){
 	// calculate the number of living neighbors around board[r][c]
 
-	// determine if board[r][c] is living or dead
+
+	//   determine if board[r][c] is living or dead
 	//    if living and 2 3 neighbors then remain alive
 	//    if dead and 3 neighbors then become alive
 
