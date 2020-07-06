@@ -27,10 +27,34 @@ public class SuperArray {
       if (this.numberElements <= this.data.length){
         this.data[this.numberElements] = value;
         this.numberElements ++;
+      }else{
+        grow();
+        if (this.numberElements <= this.data.length){
+          this.data[this.numberElements] = value;
+          this.numberElements ++;
       }
     }
+    }
+
+    public void add(int index, int value){
+      if (index < this.data.length){
+        int [] temp = new int[this.data.length];
+        for (int i = 0 ; i < index ; i++){
+          temp[i] = this.data[i];
+        }
+        temp[index] = value;
+        for (int i = (index+1) ; i < this.numberElements ; i++ ){
+          temp[i] = this.data[i-1];
+        }
+        this.numberElements ++ ;
+        this.data = temp;
+    }
+  }
+
+
 
     public int get(int index){
+
         if (index > this.numberElements){
           return -1;
        }else{
@@ -46,10 +70,25 @@ public class SuperArray {
       }
     }
 
+// create a new SupperArray
+// copy over the data
+// copy over the attributes to
+
+    public void grow(){
+      int [] temp = new int[this.data.length +10];
+//      ga = new SuperArray(this.data.length+10);
+      for (int i = 0 ; i<this.numberElements ; i++){
+        temp[i] = this.data[i];
+      }
+      this.data = temp;
+
+    }
+
+
     public String toString(){
       String visual;
       visual = "[ ";
-      for(int i = 0; i< this.data.length; i++){
+      for(int i = 0; i< this.numberElements; i++){
       visual += (this.data[i] + " ");
       }
      visual = (visual + "]");
@@ -57,7 +96,7 @@ public class SuperArray {
     }
 
     public void printArray(){
-      for(int i = 0; i< this.data.length; i++){
+      for(int i = 0; i< this.numberElements; i++){
         System.out.print(this.data[i]+ " ");
     }
         System.out.println();
