@@ -51,6 +51,20 @@ public class SuperArray {
     }
   }
 
+  public void remove(int index){
+      int [] temp = new int[this.data.length];
+      int count = 0;
+      for (int i = 0 ; i < (this.numberElements-1); i++){
+        if(i == index){
+          count ++;
+      }
+        temp[i] = this.data[count];
+        count ++;
+      }
+      this.numberElements -- ;
+      this.data = temp;
+  }
+
 
 
     public int get(int index){
