@@ -24,17 +24,16 @@ public class SuperArray {
 
 
     public void add(int value){
-      if (this.numberElements <= this.data.length){
+      if (this.numberElements < this.data.length){
         this.data[this.numberElements] = value;
         this.numberElements ++;
-      }else{
+     }else if (this.numberElements == this.data.length) {
         grow();
-        if (this.numberElements <= this.data.length){
-          this.data[this.numberElements] = value;
+        this.data[this.numberElements] = value;
           this.numberElements ++;
       }
     }
-    }
+
 
     public void add(int index, int value){
       if (index < this.data.length){
@@ -43,8 +42,8 @@ public class SuperArray {
           temp[i] = this.data[i];
         }
         temp[index] = value;
-        for (int i = (index+1) ; i < this.numberElements ; i++ ){
-          temp[i] = this.data[i-1];
+        for (int i = (index) ; i < this.numberElements ; i++ ){
+          temp[i+1] = this.data[i];
         }
         this.numberElements ++ ;
         this.data = temp;
@@ -115,7 +114,6 @@ public class SuperArray {
     }
         System.out.println();
 }
-
 
 
 
