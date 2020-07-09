@@ -84,13 +84,26 @@ public class LList{
 	// insert
     }
 
+public boolean isEmpty (){
+  return head == null;
+}
+
+
+
+
+
     public void remove(int index){
 	// make a tmp node
-  Node previous;
-  Node current;
+  Node previous = indexPointer(index-1); // alias to Node preceeding the one to be removed.
+  Node current = previous.getNext();   //indexPointer(index-1); // alias to Node to be removed
+  setNext(previous) =  previous =   current.setNext(fu);
 //Wow!! Discovery!! Variables created here are only to give us a "handle"
 // or "identifier" to the Node
-  current.setNext(getNext().getNext().indexPointer(index)));
+  Node fu = previous.getNext().indexPointer(index));
+
+  current.setNext(fu);
+
+  previous.s current
   current.setNext()
 previous.set
 current.setNext
