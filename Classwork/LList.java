@@ -88,15 +88,20 @@ public class LList{
 	// make a tmp node
   Node previous;
   Node current;
-  Node following;
+//Wow!! Discovery!! Variables created here are only to give us a "handle"
+// or "identifier" to the Node
+  current.setNext(getNext().getNext().indexPointer(index)));
+  current.setNext()
+previous.set
+current.setNext
 
-  following = new Node;
-  current = new Node;
+//  previous.setNext(getNextcurrent.setNext = new Node;
+//  previous =
 
-  previous.setNext(indexPointer(index));
-     tmp.setNext(indexPointer(index)
+//  previous.setNext(getNext(indexPointer(index));
+     current.setsetNext(indexPointer(index)
 	// move tmp down the list until it's BEFORE the node we want to delete
-  this.(indexPointer(index).set);
+//  this.(indexPointer(index).set);
 
 	// change tmp's next pointer to skip the node we are deletin
     }
