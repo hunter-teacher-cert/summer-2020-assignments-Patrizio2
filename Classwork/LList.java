@@ -158,6 +158,7 @@ public boolean isEmpty (){
   if ( index >= 0 && index <= length){
   Node temp = indexPointer(index);
   temp.setData(value);
+  
   }
 
 }
