@@ -19,9 +19,9 @@ public class LList{
 
 
 
-// Finds the pointer of the requested index.
-// The pointer is the "next" associated with
-// the index. Only works right now for ideal
+// Finds the memory location of the requested index.
+// I can also think of it as the "next" value
+// of the preceeding node. Only works right now for ideal
 // situations, where the index actually exists.
 // Assumes index starts at 1.
     public Node indexPointer(int index){
@@ -31,7 +31,7 @@ public class LList{
     while (i < index){
       pointer = pointer.getNext();
       i++;
-    }
+    }//endwhile
     return pointer;
     }
 
@@ -146,8 +146,21 @@ public boolean isEmpty (){
   }
 
 }
+/// Damn, forgot to use my indexPointer
+//Can check out code on video day 06 linked lists 2
+// @ 12:52 mark if this does not work. Very different organization
+// I did not use the video at all so don't expect it to directly help.
 
 
+
+
+  public void set(int index, String value){
+  if ( index >= 0 && index <= length){
+  Node temp = indexPointer(index);
+  temp.setData(value);
+  }
+
+}
 
 
 
