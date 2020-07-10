@@ -168,13 +168,25 @@ public boolean isEmpty (){
 //it never will...because we don't need it to and thus never fill it.
 
     public void remove(int index){
-	// make two alias 
+	// make two alias
   Node previous = indexPointer(index-1); // alias to Node preceeding the one to be removed.
   Node current = previous.getNext();   //indexPointer(index-1); // alias to Node to be removed
 
-  //sets the previous counter to skip over current and go to the  index after current
-    previous.setNext(Current.next);
-
+//Sets up conditionals to handle boundry cases
+//****REMEMBER******-These index assume starting at 1
+// we will have to change the conditionals if we start at 0
+    if (index > 1 && index < length){
+  //sets the previous counter to skip over the current index
+      previous.setNext(current.getNext());
+    }
+//  This is removing the head"
+    else if (index = 1){
+      head = current.getNext();
+    }
+//  This is removing the last node
+    else if (index = length){
+      previous.setNext(null);
+    }
     }
 
 }
