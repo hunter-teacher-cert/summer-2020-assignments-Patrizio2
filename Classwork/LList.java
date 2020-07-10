@@ -9,16 +9,16 @@ public class LList{
 	head = null;
     }
 
+
+/////
+// Adds a new node to the front of the string
     public void add(String data){
-	Node newnode = new Node(data);
-
-	// first point the new node to the beginning
-	newnode.setNext(head);
-
-	// point head to the new node
+	Node newnode = new Node(data , head);
 	head = newnode;
+  }
 
-    }
+
+
 // Finds the pointer of the requested index.
 // The pointer is the "next" associated with
 // the index. Only works right now for ideal
@@ -56,6 +56,8 @@ public class LList{
 	return s;
     }
 
+
+
     public int length(){
 	int l = 0;
 
@@ -74,6 +76,12 @@ public class LList{
 	return l;
     }
 
+
+
+
+
+
+
     public void insert(int index, String value){
 	// make new node
 
@@ -84,9 +92,62 @@ public class LList{
 	// insert
     }
 
-public boolean isEmpty (){
-  return head == null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public void addFront (String value){
+//create the new node
+  Node newnode = new Node(value , head);
+
+//change the head to the location of the newmode
+  head = newnode;
+
 }
+
+
+public boolean isEmpty (){
+
+  if (head == null){
+    return  true;
+  }else{
+    return false;
+  }
+}
+// ALL of the statements above can be reduced to the following
+// line  return head == null; ...as shown in
+// Day 5 linked lists 2 at 6 minute mark
+
+
+
+ public String get(int index){
+   if ( index >= 0 && index <= length){
+   int count = 1;
+   Node tmp = head;
+   while ( count < index){
+      count = count + 1;
+      tmp = tmp.getNext();
+      }//end while
+
+      return tmp.getData();
+
+  } else{
+        return "-1";
+  }
+
+}
+
+
 
 
 
