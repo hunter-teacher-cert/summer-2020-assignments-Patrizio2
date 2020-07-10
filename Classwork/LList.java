@@ -20,9 +20,6 @@ public class LList{
 
 
 // Finds the memory location of the requested index.
-// I can also think of it as the "next" value
-// of the preceeding node. Only works right now for ideal
-// situations, where the index actually exists.
 // Assumes index starts at 1.
     public Node indexPointer(int index){
     int i = 1; //need to change to 0 if I change to an index starting at "0"
@@ -158,40 +155,26 @@ public boolean isEmpty (){
   if ( index >= 0 && index <= length){
   Node temp = indexPointer(index);
   temp.setData(value);
-  
+
   }
 
 }
 
 
 
-
+//My whole understanding of this comes from video help on Day 7 ll and exceptions 1
+//at around the 2:38  mark. 2:58 explains difference between the head node and a
+// node containing both data and a next. The head just doesn't have the data...yet.
+//it never will...because we don't need it to and thus never fill it.
 
     public void remove(int index){
-	// make a tmp node
+	// make two alias 
   Node previous = indexPointer(index-1); // alias to Node preceeding the one to be removed.
   Node current = previous.getNext();   //indexPointer(index-1); // alias to Node to be removed
-  setNext(previous) =  previous =   current.setNext(fu);
-//Wow!! Discovery!! Variables created here are only to give us a "handle"
-// or "identifier" to the Node
-  Node fu = previous.getNext().indexPointer(index));
 
-  current.setNext(fu);
+  //sets the previous counter to skip over current and go to the  index after current
+    previous.setNext(Current.next);
 
-  previous.s current
-  current.setNext()
-previous.set
-current.setNext
-
-//  previous.setNext(getNextcurrent.setNext = new Node;
-//  previous =
-
-//  previous.setNext(getNext(indexPointer(index));
-     current.setsetNext(indexPointer(index)
-	// move tmp down the list until it's BEFORE the node we want to delete
-//  this.(indexPointer(index).set);
-
-	// change tmp's next pointer to skip the node we are deletin
     }
 
 }
