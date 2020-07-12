@@ -83,12 +83,39 @@ public class LList{
 	// make new node
 
 	// make a tmp node
-
+    Node tmp = new Node(value);
 	// move temp down the list until it's right BEFORE the insertion point
-
+    Node previous = indexpointer(index-1);
+    Node current  = previous.getNext();
 	// insert
-    }
+      Node tmp = new Node(value , current);
+      previous.setNext(tmp);
 
+// This code can be added if the intention is to add the
+// new Node at the very end of the list assuming that the
+// person entered the index equal to length. The code above shifts
+// the node at the end to the right. This code shifts it to the left
+//  but must use conditionals if wished to be employed with the code
+// above.
+//    Node temp = new Node(value, null);
+//    current.setNext(tmp);
+
+  }
+
+
+  public int search(String key){
+    Node tmp = head;
+    int count = 1; // change to 0 if counter starts at zero
+    while (tmp.getValue() != key && count <= length){
+      count ++;
+      tmp = tmp.getNext();
+    } //end while
+    if ( count <= length);
+      return count;
+    else
+      return -1;
+
+  }
 
 
 
