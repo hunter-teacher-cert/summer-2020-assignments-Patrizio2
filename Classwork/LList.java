@@ -80,11 +80,6 @@ public class LList{
     }
 
 
-
-
-
-
-
     public void insert(int index, String value){
 	// make new node
 
