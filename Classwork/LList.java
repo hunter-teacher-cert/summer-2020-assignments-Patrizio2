@@ -15,6 +15,7 @@ public class LList{
     public void add(String data){
 	Node newnode = new Node(data , head);
 	head = newnode;
+  length++;
   }
 
 
@@ -23,15 +24,20 @@ public class LList{
 // Assumes index starts at 1.
     public Node indexPointer(int index){
     int i = 1; //need to change to 0 if I change to an index starting at "0"
+    if (index < length){
     Node pointer;
     pointer = head;
     while (i < index){
       pointer = pointer.getNext();
       i++;
+
     }//endwhile
     return pointer;
     }
-
+    else{
+      return null;
+    }
+  }
 
 
 
@@ -85,6 +91,9 @@ public class LList{
 	// make a tmp node
 
 	// move temp down the list until it's right BEFORE the insertion point
+    if (index <0 && index > length){
+    System.out.println("Index is out of range");
+  }else if ( index >0 && index <=length);
     Node previous = indexPointer(index-1);
     Node current  = previous.getNext();
 	// insert
@@ -179,9 +188,11 @@ public boolean isEmpty (){
 
 
   public void set(int index, String value){
-  if ( index >= 0 && index <= length){
-  Node temp = indexPointer(index);
-  temp.setData(value);
+    if ( index >= 0 && index < length){
+    Node temp = indexPointer(index);
+    temp.setData(value);
+  }else {
+    System.out.println("Index is out of range");
 
   }
 
@@ -197,20 +208,22 @@ public boolean isEmpty (){
     public void remove(int index){
 	// make two alias
   Node previous = indexPointer(index-1); // alias to Node preceeding the one to be removed.
-
   Node current = previous.getNext();     // alias to Node to be removed
 
 //Sets up conditionals to handle boundry cases
 //****REMEMBER******-These index assume starting at 1
-// we will have to change the conditionals if we start at 0
-    if (index > 1 && index < length){
-  //sets the previous counter to skip over the current index
-      previous.setNext(current.getNext());
+// I will have to change the conditionals if we start at 0
+    System.out.println(current.getData());////******Test Line to see if I'm picking the correct index@**********
+    System.out.println(index);
+   if (index > 1 && index < length){
 
+      //sets the previous counter to skip over the current index
+      previous.setNext(current.getNext());
+//      System.out.println("We made it inside the if statement!");
     }
 //  This is removing the head"
     else if (index == 1){
-      head = current.getNext();
+       head = head.getNext();
     }
 //  This is removing the last node
     else if (index == length){
