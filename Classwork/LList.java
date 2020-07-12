@@ -4,9 +4,9 @@ import java.util.*;
 
 public class LList{
     private Node head;
-
-    public LList(){
-	head = null;
+    private  int length=0;
+    public  LList(){
+	  head = null;
     }
 
 
@@ -83,14 +83,14 @@ public class LList{
 	// make new node
 
 	// make a tmp node
-    Node tmp = new Node(value);
+
 	// move temp down the list until it's right BEFORE the insertion point
-    Node previous = indexpointer(index-1);
+    Node previous = indexPointer(index-1);
     Node current  = previous.getNext();
 	// insert
-      Node tmp = new Node(value , current);
-      previous.setNext(tmp);
-
+    Node tmp = new Node(value , current);
+    previous.setNext(tmp);
+    length ++;
 // This code can be added if the intention is to add the
 // new Node at the very end of the list assuming that the
 // person entered the index equal to length. The code above shifts
@@ -105,17 +105,17 @@ public class LList{
 
   public int search(String key){
     Node tmp = head;
-    int count = 1; // change to 0 if counter starts at zero
-    while (tmp.getValue() != key && count <= length){
+    int count = 1; // change to 0 if index's start at zero
+    while (tmp.getData() != key && count <= length){
       count ++;
       tmp = tmp.getNext();
     } //end while
-    if ( count <= length);
+    if ( count <= length){
       return count;
-    else
+    }//end if
       return -1;
+    }
 
-  }
 
 
 
@@ -136,7 +136,7 @@ public void addFront (String value){
 
 //change the head to the location of the newmode
   head = newnode;
-
+  length ++;
 }
 
 
@@ -206,15 +206,18 @@ public boolean isEmpty (){
     if (index > 1 && index < length){
   //sets the previous counter to skip over the current index
       previous.setNext(current.getNext());
+
     }
 //  This is removing the head"
-    else if (index = 1){
+    else if (index == 1){
       head = current.getNext();
     }
 //  This is removing the last node
-    else if (index = length){
+    else if (index == length){
       previous.setNext(null);
     }
+    length = length - 1; //Remember to incorporate this if coinditionals
+              //change.
     }
 
 }
