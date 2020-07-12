@@ -170,7 +170,8 @@ public boolean isEmpty (){
     public void remove(int index){
 	// make two alias
   Node previous = indexPointer(index-1); // alias to Node preceeding the one to be removed.
-  Node current = previous.getNext();   //indexPointer(index-1); // alias to Node to be removed
+
+  Node current = previous.getNext();     // alias to Node to be removed
 
 //Sets up conditionals to handle boundry cases
 //****REMEMBER******-These index assume starting at 1
