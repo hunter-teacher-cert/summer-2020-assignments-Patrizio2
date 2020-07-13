@@ -48,12 +48,12 @@ public class MyStack2{
 
 
 }
-// Take a string and pushes each character into
-// a stack.
+// Takes a string reverses it's order by
+//  pushing each character into a stack
+// and then pulling them out into a growing string
   public reverse(String s){
     originalstack     = new Stack<Character>;
     String revstring  = null;
-    int        i      = 0;
 
     for (int i = 0 ; i < s.length() ; i++){
       originalstack.push(s.charAt(i));
@@ -73,8 +73,7 @@ public class MyStack2{
   public isPalindrome(String s){
     originalstack     = new Stack<Character>;
     String revstring  = null;
-    int        i      = 0;
-
+  
     revstring = reverse(s);
 
     if (s.equals(revstring)){
@@ -89,13 +88,14 @@ public class MyStack2{
 // is equal to the # of closed parentheses.
 public static boolen parenCheck(String s){
   originalstack     = new Stack<Character>;
-  int countneutral  =
+  int countneutral  = 0;
 
   for (int i = 0 ; i < s.length() ; i++){
     originalstack.push(s.charAt(i));
   }//end for
 
-  while (!s.charAt(i).isEmpty()){
+  while (!originalstack.equals()){
+    if (originalStack.pop() )
   revstring += originalstack.pop();
   }//  endwhile
 
