@@ -12,7 +12,7 @@ public class LList{
 
 /////
 // Adds a new node to the front of the string
-    public void add(String data){
+  public void add(String data){
 	Node newnode = new Node(data , head);
 	head = newnode;
   length++;
