@@ -59,7 +59,7 @@ public class MyStack2{
       originalstack.push(s.charAt(i));
     }//end for
 
-    while (!s.charAt(i).isEmpty()){
+    while (!originalstack.isEmpty()){
     revstring += originalstack.pop();
     }//  endwhile
     return revstring;
@@ -87,17 +87,22 @@ public class MyStack2{
 
 // Returns true if the # of open parentheses
 // is equal to the # of closed parentheses.
-public static boolen isPalindrome(String s){
+public static boolen parenCheck(String s){
   originalstack     = new Stack<Character>;
-  String revstring  = null;
-  int        i      = 0;
+  int countneutral  =
 
   for (int i = 0 ; i < s.length() ; i++){
     originalstack.push(s.charAt(i));
-
   }//end for
 
-}//end isPalindrome
+  while (!s.charAt(i).isEmpty()){
+  revstring += originalstack.pop();
+  }//  endwhile
+
+
+
+
+}//end parenCheck
 
 
 
