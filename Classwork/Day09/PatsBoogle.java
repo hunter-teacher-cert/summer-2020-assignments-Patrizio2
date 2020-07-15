@@ -57,7 +57,6 @@ public class PatsBoogle
     int answer = -1;
 
     while(!(lowerlimit >= upperlimit)){
-      count++;
       if ( (int)al.get(lowerlimit) == target){
         return lowerlimit;
       }
@@ -79,8 +78,7 @@ public class PatsBoogle
 
     }
   }//end while
-        System.out.println(count);
-        return answer;
+          return answer;
   }//end binSearch()
 
   public static int binSearchTopher( ArrayList al, int target )
@@ -273,35 +271,35 @@ public class PatsBoogle
     //explicitly fill arraylist with intent to search for
     // present and nonpresent values...
     pal99.add(0);
-    pal99.add(0);
     pal99.add(1);
     pal99.add(3);
-    pal99.add(3);
-    pal99.add(3);
-    pal99.add(5);
-    pal99.add(7);
-    pal99.add(8);
-    pal99.add(10);
-    pal99.add(12);
-    pal99.add(13);
-    pal99.add(14);
-    pal99.add(14);
-    pal99.add(14);
-    pal99.add(16);
-    pal99.add(17);
-    pal99.add(19);
-    pal99.add(20);
-    pal99.add(20);
+    pal99.add(4);
+//    pal99.add(3);
+//    pal99.add(3);
+//    pal99.add(5);
+//    pal99.add(7);
+//    pal99.add(8);      /// testing to see if
+//    pal99.add(10);         an array size four,
+//    pal99.add(12);        with the target in
+//    pal99.add(13);        position 3 will work
+//    pal99.add(14);
+//    pal99.add(14);
+//    pal99.add(14);
+//    pal99.add(16);
+//    pal99.add(17);
+//    pal99.add(19);
+//    pal99.add(20);
+//    pal99.add(20);
 
     System.out.println(pal99);
     //search for target in the list
-    System.out.println(linSearch(pal99,27)); // 2
-    System.out.println(binSearch(pal99,27)); // 2
-    System.out.println(binSearchTopher(pal99,27));
+    System.out.println(linSearch(pal99,3)); // 2
+    System.out.println(binSearch(pal99,3)); // 2
+    System.out.println(binSearchTopher(pal99,3));
     //search for target not in the list
-    System.out.println(linSearch(pal99,3)); // -1
-    System.out.println(binSearch(pal99,3)); // -1
-    System.out.println(binSearchTopher(pal99,3)); //-1
+    System.out.println(linSearch(pal99,10)); // -1
+    System.out.println(binSearch(pal99,10)); // -1
+    System.out.println(binSearchTopher(pal99,10)); //-1
 
     /*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
       ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~*/
