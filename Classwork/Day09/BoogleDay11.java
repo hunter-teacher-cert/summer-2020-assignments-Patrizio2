@@ -183,7 +183,7 @@ public class BoogleDay11
 
 
   public static void main( String[] args )
-  {
+  { 
 
 
     //*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
