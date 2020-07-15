@@ -56,7 +56,7 @@ public class PatsBoogle
     int mid = (al.size()/2);
     int answer = -1;
 
-    while(!(lowerlimit >= upperlimit)){
+    while(!(lowerlimit > upperlimit)){
       if ( (int)al.get(lowerlimit) == target){
         return lowerlimit;
       }
@@ -196,6 +196,41 @@ public class PatsBoogle
 
   public static void main( String[] args )
   {
+/*
+    ArrayList salamander = new ArrayList();
+
+    //explicitly fill arraylist with intent to search for
+    // present and nonpresent values...
+    // generate an arraylist with an odd num of elems...
+    salamander.add(4);
+    salamander.add(8);
+    salamander.add(15);
+    salamander.add(16);
+    salamander.add(23);
+    System.out.println(salamander);
+
+    //search for target in the list
+    System.out.println(binSearch(salamander, 8));  // 1
+    System.out.println(binSearch(salamander, 15)); // 2
+    System.out.println(binSearch(salamander, 16)); // 3
+
+    //search for target not in the list
+    System.out.println(binSearch(salamander, 3)); // -1
+    System.out.println(binSearch(salamander, 9)); // -1
+
+    //add another element, for an even num of elems
+    salamander.add(42);
+    System.out.println(salamander);
+    //search for target in the list
+    System.out.println(binSearch(salamander, 8));  // 1
+    System.out.println(binSearch(salamander, 15)); // 2
+    System.out.println(binSearch(salamander, 16)); // 3
+
+    //search for target not in the list
+    System.out.println(binSearch(salamander, 3)); // -1
+    System.out.println(binSearch(salamander, 9)); // -1
+*/
+
     /*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
     System.out.println("\n"+"al000"+":");
     ArrayList al000 = prestoArrayListo(0,0,0);
@@ -222,6 +257,7 @@ public class PatsBoogle
     System.out.println(sal000);
     System.out.println(linSearch(sal000,3));
     System.out.println(binSearch(sal000,3));
+    System.out.println(binSearchTopher(sal000,3));
 
     System.out.println("\n"+"sal00"+":");
     ArrayList sal00 = prestoSortedArrayListo(5,0,100);
@@ -259,7 +295,7 @@ public class PatsBoogle
     System.out.println(binSearchTopher(sal04,3));
 
     System.out.println("\n"+"sal05"+":");
-    ArrayList sal05 = prestoSortedArrayListo(20,1,5);
+    ArrayList sal05 = prestoSortedArrayListo(21,1,5);
     System.out.println(sal05);
     System.out.println(linSearch(sal05,3));
     System.out.println(binSearch(sal05,3));
@@ -270,10 +306,44 @@ public class PatsBoogle
     ArrayList pal99 = new ArrayList();
     //explicitly fill arraylist with intent to search for
     // present and nonpresent values...
-    pal99.add(0);
-    pal99.add(1);
+
+
+
+    pal99.add(0);  // does my code fail
+    pal99.add(1);  // it may in theory
+    pal99.add(2);
     pal99.add(3);
-    pal99.add(4);
+
+
+
+//    pal99.add(0);
+//    pal99.add(1);
+//    pal99.add(1);
+//    pal99.add(1);
+//    pal99.add(1);
+//    pal99.add(1);
+//    pal99.add(3);
+//    pal99.add(3);
+//    pal99.add(3);      /// Test where Teachers
+//    pal99.add(4);      //   code did not work
+//    pal99.add(4);
+//    pal99.add(6);
+//    pal99.add(6);
+//    pal99.add(6);
+//    pal99.add(6);
+//    pal99.add(7);
+//    pal99.add(9);
+//    pal99.add(10);
+//    pal99.add(10);
+//    pal99.add(12);
+
+
+
+
+//    pal99.add(0);
+//    pal99.add(1);
+//    pal99.add(3);
+//    pal99.add(4);
 //    pal99.add(3);
 //    pal99.add(3);
 //    pal99.add(5);
@@ -293,9 +363,9 @@ public class PatsBoogle
 
     System.out.println(pal99);
     //search for target in the list
-    System.out.println(linSearch(pal99,3)); // 2
-    System.out.println(binSearch(pal99,3)); // 2
-    System.out.println(binSearchTopher(pal99,3));
+    System.out.println(linSearch(pal99,1)); // 2
+    System.out.println(binSearch(pal99,1)); // 2
+    System.out.println(binSearchTopher(pal99,1));
     //search for target not in the list
     System.out.println(linSearch(pal99,10)); // -1
     System.out.println(binSearch(pal99,10)); // -1
@@ -311,7 +381,7 @@ public class PatsBoogle
     System.out.println(al);
     System.out.println(linSearch(al, ));
     System.out.println(binSearch(al, ));
-    */
+  */
   }//end main
 
 }//end class
