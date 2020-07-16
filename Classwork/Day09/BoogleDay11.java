@@ -30,29 +30,41 @@ public class BoogleDay11
   }//end linSearch()
 
 
-
-
-
-
-
-
   //return index of target, or -1 if not found
-  public static int binSearch( ArrayList al, int target )
-  {
-    // <INSERT YOUR MACHINERY HERE>...
-    return -1; //placeholder to get past compiler
+  public static int binSearch( ArrayList al, int target ){
+  int templowerlimit;
+  int tempupperlimit;
+  int lowerlimit = 0;
+  int count = 0; //haven't completed the count yet.
+  int upperlimit = (al.size()-1);
+
+  int mid = (al.size()/2);
+  int answer = -1;
+
+  while(!(lowerlimit > upperlimit)){
+    if ( (int)al.get(lowerlimit) == target){
+      return lowerlimit;
+    }
+    else if ( (int)al.get(upperlimit) == target){
+      return upperlimit;
+    }
+    else if ( (int)al.get(mid) == target){
+      return mid;
+    }
+    else if ( (int)al.get(mid) < target){
+      lowerlimit = (mid+1);
+      upperlimit--;
+      mid = (lowerlimit + upperlimit)/2;
+  }
+    else if ( (int)al.get(mid) > target){
+      lowerlimit++;
+      upperlimit = (mid-1);
+      mid = (lowerlimit + upperlimit)/2;
+
+  }
+  }//end while
+        return answer;
   }//end binSearch()
-
-
-
-  // subgoal: recognize target found (and take what action?)
-  // subgoal: recognize search space exhausted (and take what action?)
-  // subgoal: recognize target in lower portion of range (and do what?)
-  // subgoal: recognize target in upper portion of range (and do what?)
-
-  //nota bene: A helper method could be very useful.
-  // Q: Why?
-  // Q: What would the parameters be for such a method?
 
 
 
@@ -142,6 +154,7 @@ public class BoogleDay11
     public void sort(ArrayList<Integer> al){
       int tempforswap;
       int low  = 0;
+
       int high = (al.size() -1); // we only need to run one less than
                                 // the total length because because
                                 // the last one is highest by default
@@ -151,7 +164,7 @@ public class BoogleDay11
     //  initialize variables to swap
     // loop over all the items
     // find smallest
-    for (int i =lo ; i < (al.length() - 1) ; i++){
+    for (int i = 0 ; i < high ; i++){
           // the last one will be sorted so no need to do last index
 
           //find the index of the smallest number
@@ -159,8 +172,8 @@ public class BoogleDay11
 
           //swap the smallest with the number in the current index
           tempforswap = (int)al.get(i);
-          al[i] = al.get(indexofsmallest);
-          al[indexforsmallest]=tempforswap;
+          al.set(i , al.get(indexofsmallest));
+          al.set(indexofsmallest, tempforswap);
 
           //increment the low setting
           low++;
@@ -169,7 +182,7 @@ public class BoogleDay11
 
   //##################################################
   //##################################################
-
+}
 
 
 
@@ -183,7 +196,7 @@ public class BoogleDay11
 
 
   public static void main( String[] args )
-  { 
+  {
 
 
     //*~~~~v~~~~~~move~me~down~~~1~block~at~a~time~~~~~~~~~~v~~~~
