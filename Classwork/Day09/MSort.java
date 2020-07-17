@@ -61,13 +61,46 @@ public class MSort
   public static ArrayList<Integer> merge(ArrayList<Integer> a,
                                          ArrayList<Integer> b) {
     //setup variables
-    //   make a new ArrayList
-    //   indices for each input
+    int sizeofA = a.size();
+    int sizeofB = b.size();
 
+    //make a new ArrayList
+    ArrayList<Integer> resultantMerge = new ArrayList<Integer>();
+
+    //indices for each input
+    int indexcounterA = 0;
+    int indexcounterB = 0;
     //while both indices are less than their respective lengths
-
+    While ( indexcounterA < sizeofA && indexcounterB < sizeofB)
     //compare current index elements of each input list
 
+    //add the smaller value to the new list
+      if ( a.get(indexcounterA) < b.get(indexcounterB)  ){
+          resultantMerge.add(a.get(indexcounterA));
+          //update index we took the value from
+          indexcounterA ++;
+      } else {
+          resultantMerge.add(b.get(indexcounterB));
+          //update index we took the value from
+          indexcounterB ++;
+      }
+    // adds the remainder of array A to the merged array
+    // it is tempting to put an "if" condition here to
+    // choose which while loop to run so that the remainder
+    // of the longer array is added, however, the conditiona
+    // whithin the while already takes care of thata and thus
+    // makes the need for the "if" redundant.
+    while (indexcounterA < sizeofA){
+      resultantMerge.add(a.get(indexcounterA));
+      //update index we took the value from
+      indexcounterA++;
+    }
+    // adds the remainder of array B to the merged array
+    while (indexcounterB < sizeofB){
+      resultantMerge.add(b.get(indexcounterB));
+      //update index we took the value from
+      indexcounterB++;
+    }
     //add the smaller value to the new list
 
     //update index we took the value from
