@@ -71,7 +71,7 @@ public class MSort
     int indexcounterA = 0;
     int indexcounterB = 0;
     //while both indices are less than their respective lengths
-    While ( indexcounterA < sizeofA && indexcounterB < sizeofB)
+    While ( indexcounterA < sizeofA && indexcounterB < sizeofB){
     //compare current index elements of each input list
 
     //add the smaller value to the new list
@@ -83,7 +83,9 @@ public class MSort
           resultantMerge.add(b.get(indexcounterB));
           //update index we took the value from
           indexcounterB ++;
-      }
+      }//end if
+    }//end while
+
     // adds the remainder of array A to the merged array
     // it is tempting to put an "if" condition here to
     // choose which while loop to run so that the remainder
@@ -109,7 +111,7 @@ public class MSort
     //copy the values from the reamining list over
 
     //return the new list
-    return null;
+    return resultantMerge;
   }//merge
 
 
