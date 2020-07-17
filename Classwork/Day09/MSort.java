@@ -71,7 +71,7 @@ public class MSort
     int indexcounterA = 0;
     int indexcounterB = 0;
     //while both indices are less than their respective lengths
-    While ( indexcounterA < sizeofA && indexcounterB < sizeofB){
+    while ( indexcounterA < sizeofA && indexcounterB < sizeofB){
     //compare current index elements of each input list
 
     //add the smaller value to the new list
