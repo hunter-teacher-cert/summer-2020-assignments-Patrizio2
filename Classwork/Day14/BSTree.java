@@ -11,7 +11,6 @@ import java.util.*;
     public int search(int key){
 	     TreeNode current = root;
 
-
 	      while (current != null){
 	         int currentValue = current.getData();
 	         if (currentValue == key){
@@ -25,7 +24,7 @@ import java.util.*;
 
   // do we really want to return -1?
 	 return currentvalue;
-    }
+}//end search method
 
   public void seed(){
 	TreeNode t;
