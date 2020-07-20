@@ -32,7 +32,7 @@ private void traverse(TreeNode current){
   }
   //process the current node
     System.out.print(current.getData()+", ");
-  
+
   //recursively print out the left subtree
   traverse(current.getLeft());
 
@@ -42,6 +42,7 @@ private void traverse(TreeNode current){
 
 public void traverse(){
   traverse(root);
+  System.out.println();
 }
 
 
@@ -81,7 +82,7 @@ public void insert(int key){
 
 
 
-
+/*
 
   public void seed(){
 	TreeNode t;
@@ -102,6 +103,6 @@ public void insert(int key){
 	root.getRight().setRight(t);
 
 	}
-
+*/
 
 }
