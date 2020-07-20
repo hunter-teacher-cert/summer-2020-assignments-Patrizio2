@@ -26,6 +26,23 @@ import java.util.*;
 	 return -1;
 }//end search method
 
+private void traverse(TreeNode current){
+  if (current == null){
+    return;
+  }
+  //process the current node
+    System.out.print(current.getData()+", ");
+  
+  //recursively print out the left subtree
+  traverse(current.getLeft());
+
+  //recursively print out the right subtree
+  traverse(current.getRight());
+}
+
+public void traverse(){
+  traverse(root);
+}
 
 
 public void insert(int key){
