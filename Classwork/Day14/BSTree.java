@@ -28,6 +28,42 @@ import java.util.*;
 
 
 
+public void insert(int key){
+
+  TreeNode newNode = new TreeNode(key);
+  TreeNode front = root;
+  TreeNode trailer = front; //will keep track of the previous node
+                    //memory location
+
+
+   while (front != null){
+       int frontValue = front.getData();
+       if (frontValue == key){
+          return;
+     } else if (frontValue < key){
+        trailer = front;
+        front = front.getRight();
+     } else {
+        trailer = front;
+        front = front.getLeft();
+}
+}//end while
+    if (key < front.getData()){
+      trailer.setLeft(newNode);
+   }else{
+      trailer.setRight(newNode);
+   }
+
+}//end search method
+
+
+
+
+
+
+
+
+
 
   public void seed(){
 	TreeNode t;
