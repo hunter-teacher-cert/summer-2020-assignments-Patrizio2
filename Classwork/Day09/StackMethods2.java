@@ -8,7 +8,7 @@ public class StackMethods2{
 // Takes a string and reverses it's order by
 //  pushing each character into a stack
 // and then pulling them out into a growing string
-  public String reverse(String s){
+  public static String reverse(String s){
     Stack<Character> originalstack = new Stack<Character>();
     String revstring  = null;
 
@@ -25,7 +25,7 @@ public class StackMethods2{
 // Returns true or false depneding on whether
 // s is a palindrome (can be read the same
 // forward & backward) - Example: racecar
- public boolean isPalindrome(String s){
+ public static boolean isPalindrome(String s){
     String revstring  = null;
     Stack<Character> originalstack = new Stack<Character>();
     revstring = reverse(s);
@@ -35,7 +35,7 @@ public class StackMethods2{
     }//end if
       return false;
 }// end isPalindrome method
-
+// can be shrunk down to return (s.equals(revstring))
 
 // Returns true if the # of open parentheses
 // is equal to the # of closed parentheses.

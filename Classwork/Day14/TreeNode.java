@@ -17,6 +17,29 @@ public class TreeNode{
     right = null;
   }
 
+  public void setData(int data){
+    this.data = data;
+  }
+
+  public void setLeft (TreeNode left){
+    this.left = left;
+  }
+
+  public void setRight (TreeNode right){
+    this.right = right;
+  }
+
+  public void getData (TreeNode data){
+    return data;
+  }
+
+  public void getLeft (TreeNode left){
+    return left;
+  }
+
+  public void getRight (TreeNode right){
+    return right;
+  }
 
 
 

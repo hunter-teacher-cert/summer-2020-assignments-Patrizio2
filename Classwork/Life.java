@@ -19,7 +19,7 @@ class Life{
 	char[][] board = new char[rows][cols];
 	for (int r = 0; r < rows; r++) {
 	    for (int c = 0; c < cols; c++) {
-		board[r][c] = 'x';
+		board[r][c] = ' ';
 	    }
 	}
 	return board;
@@ -76,13 +76,20 @@ class Life{
     public static char getNextGenCell(char[][] board,int r, int c){
 	// calculate the number of living neighbors around board[r][c]
 
-
+    if (countNeighbours( board , r, c) == 3){
+        return "X";
+    }else if (countNeighbours( board , r, c) >= 3){
+        return " ";
+    }else if (countNeighbours( board, r, c) <= 2 && )
 	//   determine if board[r][c] is living or dead
 	//    if living and 2 3 neighbors then remain alive
 	//    if dead and 3 neighbors then become alive
 
 	return ' ';
     }
+
+
+
     /*
       scan the board to generate a NEW board with the
       next generation
@@ -90,7 +97,10 @@ class Life{
     public char[][] generateNextBoard(char[][] board){
 	char newBoard[][] = new char[10][10];
 	// fill the new board
-	return newBoard;
+
+
+
+  return newBoard;
     }
 
     public static void main(String[] args) {

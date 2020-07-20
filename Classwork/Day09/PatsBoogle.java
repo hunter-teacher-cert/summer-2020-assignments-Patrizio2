@@ -50,7 +50,7 @@ public class PatsBoogle
     int templowerlimit;
     int tempupperlimit;
     int lowerlimit = 0;
-    int count = 0;
+    int count = 0; //haven't completed the count yet.
     int upperlimit = (al.size()-1);
 
     int mid = (al.size()/2);

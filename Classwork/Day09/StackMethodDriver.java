@@ -6,7 +6,7 @@ public class StackMethodDriver{
     String s1 = "hello";
     String s2 = "racecar";
     String reversedstring;
-    String palendromeresult;
+    String palindromeresult;
 
 
     System.out.println("Test 1:");
@@ -15,8 +15,8 @@ public class StackMethodDriver{
     reversedstring = reverse(s1);
     System.out.println(reversedstring);
 //    System.out.println(this.reverse(s1));
-    palendromeresult = isPalendrome(s1);
-    System.out.println(palendromeresult);
+    palindromeresult = isPalindrome(s1);
+    System.out.println(palindromeresult);
 //    System.out.println(this.isPalendrome(s1));
 
     System.out.println("\nTest 2:");
@@ -25,8 +25,8 @@ public class StackMethodDriver{
     reversedstring = reverse(s2);
     System.out.println(reversedstring);
 //    System.out.println(this.reverse(s2));
-    palendromeresult = isPalendrome(s1);
-    System.out.println(palendromeresult);
+    palindromeresult = isPalindrome(s1);
+    System.out.println(palindromeresult);
 //    System.out.println(this.isPalendrome(s2));
 
     String expression1 = "(a + b) * c";
