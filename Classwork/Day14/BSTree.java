@@ -48,7 +48,8 @@ public void insert(int key){
         front = front.getLeft();
 }
 }//end while
-    if (key < front.getData()){
+    //checks to see which side to add new node
+    if (key < trailer.getData()){
       trailer.setLeft(newNode);
    }else{
       trailer.setRight(newNode);
