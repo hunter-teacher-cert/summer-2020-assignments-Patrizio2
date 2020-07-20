@@ -1,32 +1,33 @@
 import java.io.*;
 import java.util.*;
 
-public class BSTree {
+  public class BSTree {
     private TreeNode root;
 
     public BSTree(){
-	root = null;
+	  root = null;
     }
 
     public int search(int key){
-	TreeNode current = root;
+	     TreeNode current = root;
 
-	while (current != null){
-	    int currentValue = current.getValue();
-	    if (currentValue == key){
-		return key;
-	    } else if (currentValue < key){
-		      current = current.getRight();
-	    } else {
+
+	      while (current != null){
+	         int currentValue = current.getData();
+	         if (currentValue == key){
+		          return key;
+	       } else if (currentValue < key){
+		         current = current.getRight();
+	       } else {
 		      current = current.getLeft();
 		}
 	}//end while
 
   // do we really want to return -1?
-	return currentvalue;
+	 return currentvalue;
     }
 
-    public void seed(){
+  public void seed(){
 	TreeNode t;
 
 	t = new TreeNode(10);
