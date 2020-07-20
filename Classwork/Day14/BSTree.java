@@ -23,8 +23,11 @@ import java.util.*;
 	}//end while
 
   // do we really want to return -1?
-	 return currentvalue;
+	 return -1;
 }//end search method
+
+
+
 
   public void seed(){
 	TreeNode t;
