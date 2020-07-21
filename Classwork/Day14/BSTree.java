@@ -88,10 +88,9 @@ public void delete(int key){
 
   TreeNode roottemp = root;
   TreeNode front = root;
-  TreeNode trailer = root; //will keep track of the previous node
-                    //memory location
-
-
+  TreeNode trailer = root; //keeps previous nodes memory location
+  TreeNode largestOffspring; //keeps previous nodes memory location
+  TreeNode tempnode;
    while (front != null && front.getData() != key){
        int frontValue = front.getData();
        if (frontValue < key){
@@ -118,29 +117,60 @@ public void delete(int key){
       if (key < trailer.getData())
           trailer.setLeft(null);
       else
-          trailer.setRight(null)
-    return;
+          trailer.setRight(null);
+    return; //case 1 complete
      }
+
     //case 2 -- node we want to delete has one child
-   else if (front.getLeft() == null || front.getRight()) ==null){
-      if (key < trailer.getData())
-          trailer.setLeft(front);
-      else
-          trailer.setRight(null)
+    else if (front.getLeft() == null || front.getRight() ==null){
+
+      //Resets left pointer of trailer with the non null child side
+      if (key < trailer.getData() && front.getLeft() != null)
+          trailer.setLeft(front.getLeft());
+      if (key < trailer.getData() && front.getRight()!= null)
+          trailer.setLeft(front.getRight());
+
+      //Resets right pointer of trailer with the non null child side
+      if (key > trailer.getData() && front.getLeft() != null)
+          trailer.setRight(front.getLeft());
+      if (key > trailer.getData() && front.getRight()!= null)
+          trailer.setLeft(front.getRight());
+      return; //case 2 complete
+    }
+
+    //case 3 -- node we want to delete has two children
+              //no actual need for an else if statement
+    else if (front.getLeft() == null || front.getRight() == null){
 
 
+      // Finding the node of the largest offspring of the front node
+      largestOffspring = front.getLeft();
+      while (largestOffspring !=null){
+        largestOffspringTrailer = largestOffspring;
+        largestOffspring = largestOffspring.getRight();
+      } //end while
+
+
+/*
+          if (key < trailer.getData() && key < root.getData())
+          trailer.setLeft(null);
+          if (key < trailer.getData() && key < root.getData())
+          trailer.setLeft(null);
+*/
+          if (key > trailer.getData()){
+          trailer.setRight(front.getLeft());
+          largestOffspringTrailer.setRight(front.getRight());
+
+          }
+          else if (key < trailer.getData()){
+          trailer.setLeft(front.getLeft());
+          largestOffspringTrailer.setRight(front.getRight());
+
+      }
   }
 
 
-
-
-
-      if (key > roottemp.getData()){
-      trailer.setRight(front.getLeft());
-
-   }
-
-}//end insert method
+}//end delete method
 
 /*
 
