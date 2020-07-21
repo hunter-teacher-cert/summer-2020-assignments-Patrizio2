@@ -90,6 +90,7 @@ public void delete(int key){
   TreeNode front = root;
   TreeNode trailer = root; //keeps previous nodes memory location
   TreeNode largestOffspring; //keeps previous nodes memory location
+  TreeNode largestOffspringTrailer;
   TreeNode tempnode;
    while (front != null && front.getData() != key){
        int frontValue = front.getData();
@@ -112,7 +113,7 @@ public void delete(int key){
 
 
     //case 1 -- the node we want to delete is a leaf
-    if (front.getLeft() == null && front.getRight ==null){
+    if (front.getLeft() == null && front.getRight() == null){
       //decides which pointer of parent to change to null
       if (key < trailer.getData())
           trailer.setLeft(null);
@@ -134,23 +135,29 @@ public void delete(int key){
       if (key > trailer.getData() && front.getLeft() != null)
           trailer.setRight(front.getLeft());
       if (key > trailer.getData() && front.getRight()!= null)
-          trailer.setLeft(front.getRight());
+          trailer.setRight(front.getRight());
       return; //case 2 complete
     }
 
     //case 3 -- node we want to delete has two children
               //no actual need for an else if statement
-    else if (front.getLeft() == null || front.getRight() == null){
+    else if (front.getLeft() != null && front.getRight() != null){
+
 
 
       // Finding the node of the largest offspring of the front node
       largestOffspring = front.getLeft();
+      largestOffspringTrailer = front;
       while (largestOffspring !=null){
         largestOffspringTrailer = largestOffspring;
         largestOffspring = largestOffspring.getRight();
       } //end while
 
 
+        ///special case where Node is removed
+
+//        if (front == root)
+//            front.setData()
 /*
           if (key < trailer.getData() && key < root.getData())
           trailer.setLeft(null);
