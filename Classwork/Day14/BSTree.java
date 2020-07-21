@@ -50,9 +50,13 @@ public void insert(int key){
 
   TreeNode newNode = new TreeNode(key);
   TreeNode front = root;
-  TreeNode trailer = front; //will keep track of the previous node
+  TreeNode trailer = root; //will keep track of the previous node
                     //memory location
 
+   if (root == null){
+     root = newNode;
+     return;
+   }
 
    while (front != null){
        int frontValue = front.getData();
@@ -73,16 +77,73 @@ public void insert(int key){
       trailer.setRight(newNode);
    }
 
-}//end search method
+}//end insert method
+
+////////////////////
+//This method deletes a given value from the tree
+////////////////////
+
+
+public void delete(int key){
+
+  TreeNode roottemp = root;
+  TreeNode front = root;
+  TreeNode trailer = root; //will keep track of the previous node
+                    //memory location
+
+
+   while (front != null && front.getData() != key){
+       int frontValue = front.getData();
+       if (frontValue < key){
+        trailer = front;
+        front = front.getRight();
+     } else {
+        trailer = front;
+        front = front.getLeft();
+}
+}//end while
+    // if the key wasn't in the tree
+    if (front == null){
+      return;
+    }
+
+    //if we get here, "front" points to the node
+    //we want to delete and trailer points to the
+    //one above it.
+
+
+    //case 1 -- the node we want to delete is a leaf
+    if (front.getLeft() == null && front.getRight ==null){
+      //decides which pointer of parent to change to null
+      if (key < trailer.getData())
+          trailer.setLeft(null);
+      else
+          trailer.setRight(null)
+    return;
+     }
+    //case 2 -- node we want to delete has one child
+   else if (front.getLeft() == null || front.getRight()) ==null){
+      if (key < trailer.getData())
+          trailer.setLeft(front);
+      else
+          trailer.setRight(null)
+
+
+  }
 
 
 
 
 
+      if (key > roottemp.getData()){
+      trailer.setRight(front.getLeft());
 
+   }
 
+}//end insert method
 
 /*
+
 
   public void seed(){
 	TreeNode t;
