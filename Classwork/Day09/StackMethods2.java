@@ -10,7 +10,7 @@ public class StackMethods2{
 // and then pulling them out into a growing string
   public static String reverse(String s){
     Stack<Character> originalstack = new Stack<Character>();
-    String revstring  = null;
+    String revstring ="";
 
     for (int i = 0 ; i < s.length() ; i++){
       originalstack.push(s.charAt(i));
@@ -26,14 +26,16 @@ public class StackMethods2{
 // s is a palindrome (can be read the same
 // forward & backward) - Example: racecar
  public static boolean isPalindrome(String s){
-    String revstring  = null;
+    String revstring  = "";
     Stack<Character> originalstack = new Stack<Character>();
     revstring = reverse(s);
 
-    if (s.equals(revstring)){
+      if (revstring.equals(s)){
       return true;
-    }//end if
+    } else{
       return false;
+    }//endif
+
 }// end isPalindrome method
 // can be shrunk down to return (s.equals(revstring))
 
@@ -42,25 +44,34 @@ public class StackMethods2{
 public static boolean parenCheck(String s){
   Stack<Character> originalstack = new Stack<Character>();
   int countneutral  = 0;
-
+  int size;
   for (int i = 0 ; i < s.length() ; i++){
     originalstack.push(s.charAt(i));
+    System.out.println(i);
   }//end for
-
+size = originalstack.size();
+System.out.println(size);
   while (!originalstack.isEmpty()){
-
-    if (originalstack.pop().equals("(")){
+      System.out.println("David Byrne");
+      if (originalstack.pop().equals("(")){
+      System.out.println("we're in");
        countneutral ++;
     }
     else if (originalstack.pop().equals(")")) {
+        System.out.println(countneutral);
+        System.out.println("we're in");
        countneutral --;
     }
   }//  endwhile
-    if (countneutral == 0){
-        return true;
-    }// end if
-        return false;
+    System.out.println("David Byrne2");
 
+    if (countneutral == 0){
+        System.out.println(countneutral);
+        return true;
+   }else {
+        System.out.println(countneutral);
+        return false;
+   }//endif
 }//end parenCheck method
 
 public static void main(String[] args) {
@@ -68,7 +79,7 @@ public static void main(String[] args) {
   String s2 = "racecar";
   String reversedstring;
   boolean palindromeresult;
-
+  boolean parentheses;
 
   System.out.println("Test 1:");
 //    Stack<Character> stack1 = new Stack<Character>(s1);
@@ -86,18 +97,22 @@ public static void main(String[] args) {
   reversedstring = reverse(s2);
   System.out.println(reversedstring);
 //    System.out.println(this.reverse(s2));
-  palindromeresult = isPalindrome(s1);
+  palindromeresult = isPalindrome(s2);
   System.out.println(palindromeresult);
 //    System.out.println(this.isPalendrome(s2));
 
-  String expression1 = "(a + b) * c";
+
+  System.out.println("\nTest 3:");
+  String expression1 = "(a + b ) * c";
   String expression2 = "(a + b * c";
 //    Stack<Character> stack3 = new Stack<Character>(expression1);
 //    Stack<Character> stack4 = new Stack<Character>(expression2);
-  System.out.println("\nTest 3:");
-//    System.out.println(stack3.parenCheck());
-//    System.out.println(stack4.parenCheck());
-
+  System.out.println(expression1);
+  parentheses = parenCheck(expression1);
+  System.out.println(parentheses);
+  System.out.println(expression2);
+  parentheses = parenCheck(expression2);
+  System.out.println(parentheses);
 }//end main
 
 
