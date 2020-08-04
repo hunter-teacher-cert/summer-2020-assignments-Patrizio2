@@ -46,36 +46,34 @@ public static boolean parenCheck(String s){
   Character popped;
   int countneutral  = 0;
   int size;
+
+
   for (int i = 0 ; i < s.length() ; i++){
     originalstack.push(s.charAt(i));
-    System.out.println(i);
   }//end for
-size = originalstack.size();
-System.out.println(size);
+
+  size = originalstack.size();
+
+////////////////////////////////////////
+// Keeps track of whether open and closed parentheses
+// by adding for every open and subtracting for every
+// closed. A zero count means there are no missing
+// parentheses. Uses a while loop.
+////////////////////////////////////////
+
   while (!originalstack.isEmpty()){
-      System.out.println("David Byrne");
-      System.out.println(originalstack.pop());
       popped = originalstack.pop();
         if (popped.equals('(')){
-          System.out.println("we're in1");
           countneutral ++;
     }   else if(popped.equals(')')){
-//          System.out.println(countneutral);
-          System.out.println("we're in2");
           countneutral --;
     }
-      System.out.println(size);
       size --;
-      System.out.println(size);
-
   }//  endwhile
-  System.out.println("David Byrne2");
 
     if (countneutral == 0){
-        System.out.println(countneutral);
         return true;
    }else {
-        System.out.println(countneutral);
         return false;
    }//endif
 }//end parenCheck method
