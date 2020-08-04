@@ -43,6 +43,7 @@ public class StackMethods2{
 // is equal to the # of closed parentheses.
 public static boolean parenCheck(String s){
   Stack<Character> originalstack = new Stack<Character>();
+  Character popped;
   int countneutral  = 0;
   int size;
   for (int i = 0 ; i < s.length() ; i++){
@@ -53,17 +54,22 @@ size = originalstack.size();
 System.out.println(size);
   while (!originalstack.isEmpty()){
       System.out.println("David Byrne");
-      if (originalstack.pop().equals("(")){
-      System.out.println("we're in");
-       countneutral ++;
+      System.out.println(originalstack.pop());
+      popped = originalstack.pop();
+        if (popped.equals('(')){
+          System.out.println("we're in1");
+          countneutral ++;
+    }   else if(popped.equals(')')){
+//          System.out.println(countneutral);
+          System.out.println("we're in2");
+          countneutral --;
     }
-    else if (originalstack.pop().equals(")")) {
-        System.out.println(countneutral);
-        System.out.println("we're in");
-       countneutral --;
-    }
+      System.out.println(size);
+      size --;
+      System.out.println(size);
+
   }//  endwhile
-    System.out.println("David Byrne2");
+  System.out.println("David Byrne2");
 
     if (countneutral == 0){
         System.out.println(countneutral);
