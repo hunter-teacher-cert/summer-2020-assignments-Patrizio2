@@ -7,7 +7,7 @@ public class Time{
   private int    hour;
   private int    minute;
   private double second;
-}//default constructor
+//default constructor
 
   public Time(){
       this.hour = 0;
@@ -26,7 +26,4 @@ public class Time{
   }
 
 //  public static void printTime(Time t)
-
-
-
 }
