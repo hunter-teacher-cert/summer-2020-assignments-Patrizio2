@@ -19,7 +19,7 @@ class Life{
 	char[][] board = new char[rows][cols];
 	for (int r = 0; r < rows; r++) {
 	    for (int c = 0; c < cols; c++) {
-		board[r][c] = ' ';
+		board[r][c] = '0';
 	    }
 	}
 	return board;
@@ -83,9 +83,9 @@ class Life{
     if (countNeighbours( board , r, c) == 3){
         return 'X';
     }else if (countNeighbours( board , r, c) > 3){
-        return ' ';
+        return '0';
     }else if (countNeighbours( board, r, c) < 2 ){
-        return ' ';
+        return '0';
     }else if (countNeighbours( board, r, c) ==2 && board[r][c] == 'X'){
         return 'X';
     }//end if
@@ -118,7 +118,6 @@ class Life{
       newBoard[r][c] = getNextGenCell(board, r, c);
     }// end column loop
   }//end row loop
-
   return newBoard;
 
     }
@@ -126,9 +125,24 @@ class Life{
   public static void main(String[] args) {
 	char[][] board;
   char var ='X';
+  int choice = 1;
+  Scanner sc = new Scanner(System.in);
+
   board = createNewBoard(12,12);
 	printBoard(board);
-
+  setCell(board, 0, 1, 'X');
+  setCell(board, 0, 2, 'X');
+  setCell(board, 1, 1, 'X');
+  setCell(board, 2, 1, 'X');
+  setCell(board, 3, 1, 'X');
+  printBoard(board);
+//  System.out.println("Enter 1 to show the next generation");
+//  while ( choice == 1 ){
+//     board = generateNextBoard (board);
+//     printBoard(board);
+//     System.out.println("Enter 1 to show the next generation");
+//     choice = sc.nextInt();
+//  }//end while
   }
 
 }
