@@ -27,8 +27,8 @@ class Life{
 
 
     public static void printBoard(char[][] board){
-	for (int r = 0; r < board.length; r++) {
-	    for (int c = 0; c < board[r].length; c++) {
+	for (int r = 1; r < (board.length-1); r++) {
+	    for (int c = 1; c < (board[r].length - 1); c++) {
 		System.out.printf("%c",board[r][c]);
 	    }
 	    System.out.println();
@@ -38,10 +38,16 @@ class Life{
 
     /*
       set the cell (r,c) to value
+      Note: the cell is actually set to (r+1,c+1)
+      because the grid is board[r-1][c-1]
+      to board[r+1][c+1]. This means the "playing board"
+      is actually the central grid surrounded by 1 one cell
+      boarder on all sides. This elinates a lot of "if" statements
+      when counting neighbours.
     */
     public static void setCell(char[][] board, int r, int c, char val){
-	if (r>=0 && r<board.length && c>=0 && c<board[r].length){
-	    board[r][c] = val;
+	     if (r>=0 && r<(board.length-3) && c>=0 && c<(board[r].length-3)){
+         board[r+1][c+1] = val;
 	}
     }
 
@@ -54,17 +60,15 @@ class Life{
     */
     public static int countNeighbours(char[][] board, int r, int c){
     int count = 0;
-    if (r>=0 && r<board.length && c>=0 && c<board[r].length){
+//    if (r>=0 && r<(board.length -1) && c>=0 && c< (board[r].length - 1)){
       for (int row = (r-1); row < (r+1); row++) {
     	    for (int col = (c-1); c < (c+1) ; c++) {
-    		      if (!(row == r&& col == c)){
-                 count = count + 1;
+    		      if (!(row == r&& col == c) && board[r][c] == "X"){
+                   count = count + 1;
               }
-    	    }
-    	}
-
-    }
-    return count;
+    	    }//end column loop
+    	}//end row loop
+      return count;
   }
 
     /*
@@ -78,15 +82,14 @@ class Life{
 
     if (countNeighbours( board , r, c) == 3){
         return "X";
-    }else if (countNeighbours( board , r, c) >= 3){
+    }else if (countNeighbours( board , r, c) > 3){
         return " ";
-    }else if (countNeighbours( board, r, c) <= 2 && )
-	//   determine if board[r][c] is living or dead
-	//    if living and 2 3 neighbors then remain alive
-	//    if dead and 3 neighbors then become alive
-
-	return ' ';
-    }
+    }else if (countNeighbours( board, r, c) < 2 ){
+        return " ";
+    }else if (countNeighbours( board, r, c) ==2 && board[r][c] == X){
+        return X;
+    }//end if
+  }//end countNeighbours
 
 
 
@@ -95,21 +98,35 @@ class Life{
       next generation
     */
     public char[][] generateNextBoard(char[][] board){
-	char newBoard[][] = new char[10][10];
-	// fill the new board
+	char newBoard[][] = new char[12][12];
 
+// fills the new board
 
+    newBoard = createNewBoard(12,12);
+
+// sets all the board, including perimeter equal to " "
+//  for (int r = 0; r < board.length; r++) {
+//    for (int c = 0; c < board[r].length; c++) {
+//      newBoard[r][c] = " ";
+//    }// end column loop
+//  }//end row loop
+
+// Sets the new generation values
+  for (int r = 1; r < (board.length-1); r++) {
+	    for (int c = 1; c < (board[r].length-1); c++) {
+      newBoard[r][c] = getNextGenCell(board, r, c);
+    }// end column loop
+  }//end row loop
 
   return newBoard;
+
     }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 	char[][] board;
-	board = createNewBoard(10,10);
+	board = createNewBoard(12,12);
 	printBoard(board);
 
+  }
 
-
-
-    }
 }
