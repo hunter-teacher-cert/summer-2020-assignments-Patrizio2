@@ -60,14 +60,23 @@ class Life{
     */
     public static int countNeighbours(char[][] board, int r, int c){
     int count = 0;
+    int checks =0;
+    int impotantcounts = 0;
 //    if (r>=0 && r<(board.length -1) && c>=0 && c< (board[r].length - 1)){
-      for (int row = (r-1); row < (r+1); row++) {
-          for (int col = (c-1); col < (c+1) ; col++) {
+      for (int row = (r-1); row <= (r+1); row++) {
+          for (int col = (c-1); col <= (c+1) ; col++) {
+              checks++;
               if (!(row == r && col == c) && board[row][col] == 'X'){
+                  impotantcounts ++;
+                   System.out.println(impotantcounts);
                    count++;
               }
     	    }//end column loop
     	}//end row loop
+      System.out.print("Count ");
+      System.out.println(count);
+      System.out.print("Checks");
+      System.out.println(checks);
       return count;
   }
 
@@ -79,7 +88,8 @@ class Life{
      */
     public static char getNextGenCell(char[][] board,int r, int c){
 	// calculate the number of living neighbors around board[r][c]
-
+    int numberOfNeighbours = countNeighbours( board , r, c);
+    
     if (countNeighbours( board , r, c) == 3){
         return 'X';
     }else if (countNeighbours( board , r, c) > 3){
@@ -90,8 +100,10 @@ class Life{
         return 'X';
     }
      else
-          return '0';
+          return 'R';
   }//end getNextGenCell
+
+
 
 
 
@@ -106,17 +118,15 @@ class Life{
 
     newBoard = createNewBoard(12,12);
 
-// sets all the board, including perimeter equal to " "
-//  for (int r = 0; r < board.length; r++) {
-//    for (int c = 0; c < board[r].length; c++) {
-//      newBoard[r][c] = " ";
-//    }// end column loop
-//  }//end row loop
 
 // Sets the new generation values
-  for (int r = 1; r < (board.length-1); r++) {
-	    for (int c = 1; c < (board[r].length-1); c++) {
-      newBoard[r][c] = getNextGenCell(board, r, c);
+  for (int row = 1; row < (board.length-1); row++) {
+	    for (int col = 1; col < (board[row].length-1); col++) {
+      newBoard[row][col] = getNextGenCell(board, row, col);
+      System.out.print("Row ");
+      System.out.print(row);
+      System.out.print(", col ");
+      System.out.println(col);
     }// end column loop
   }//end row loop
   return newBoard;
@@ -137,7 +147,7 @@ class Life{
   setCell(board, 2, 1, 'X');
   setCell(board, 3, 1, 'X');
   printBoard(board);
-  System.out.println("Enter 1 to show the next generation");
+
   while ( choice == 1 ){
      board = generateNextBoard (board);
      printBoard(board);
