@@ -98,7 +98,7 @@ class Life{
       scan the board to generate a NEW board with the
       next generation
     */
-    public char[][] generateNextBoard(char[][] board){
+    public static char[][] generateNextBoard(char[][] board){
 	char newBoard[][] = new char[12][12];
 
 // fills the new board
@@ -136,13 +136,14 @@ class Life{
   setCell(board, 2, 1, 'X');
   setCell(board, 3, 1, 'X');
   printBoard(board);
-//  System.out.println("Enter 1 to show the next generation");
-//  while ( choice == 1 ){
-//     board = generateNextBoard (board);
-//     printBoard(board);
-//     System.out.println("Enter 1 to show the next generation");
-//     choice = sc.nextInt();
-//  }//end while
+  System.out.println("Enter 1 to show the next generation");
+  while ( choice == 1 ){
+     generateNextBoard (board);
+     printBoard(board);
+     System.out.println("Enter 1 to show the next generation.");
+     System.out.println("Enter 0 to stop");
+     choice = sc.nextInt();
+  }//end while
   }
 
 }
