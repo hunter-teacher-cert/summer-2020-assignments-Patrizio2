@@ -62,9 +62,9 @@ class Life{
     int count = 0;
 //    if (r>=0 && r<(board.length -1) && c>=0 && c< (board[r].length - 1)){
       for (int row = (r-1); row < (r+1); row++) {
-    	    for (int col = (c-1); c < (c+1) ; c++) {
-    		      if (!(row == r&& col == c) && board[r][c] == 'X'){
-                   count = count + 1;
+          for (int col = (c-1); col < (c+1) ; col++) {
+              if (!(row == r && col == c) && board[row][col] == 'X'){
+                   count++;
               }
     	    }//end column loop
     	}//end row loop
@@ -88,9 +88,10 @@ class Life{
         return '0';
     }else if (countNeighbours( board, r, c) ==2 && board[r][c] == 'X'){
         return 'X';
-    }//end if
-        return 'p';
-  }//end countNeighbours
+    }
+     else
+          return '0';
+  }//end getNextGenCell
 
 
 
@@ -98,8 +99,8 @@ class Life{
       scan the board to generate a NEW board with the
       next generation
     */
-    public static char[][] generateNextBoard(char[][] board){
-	char newBoard[][] = new char[12][12];
+  public static char[][] generateNextBoard(char[][] board){
+	     char newBoard[][] = new char[12][12];
 
 // fills the new board
 
@@ -138,7 +139,7 @@ class Life{
   printBoard(board);
   System.out.println("Enter 1 to show the next generation");
   while ( choice == 1 ){
-     generateNextBoard (board);
+     board = generateNextBoard (board);
      printBoard(board);
      System.out.println("Enter 1 to show the next generation.");
      System.out.println("Enter 0 to stop");
