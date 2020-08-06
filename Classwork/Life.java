@@ -41,7 +41,7 @@ class Life{
       Note: the cell is actually set to (r+1,c+1)
       because the grid is board[r-1][c-1]
       to board[r+1][c+1]. This means the "playing board"
-      is actually the central grid surrounded by 1 one cell
+      is actually the central grid surrounded by a 1 one cell
       boarder on all sides. This elinates a lot of "if" statements
       when counting neighbours.
     */
@@ -67,17 +67,23 @@ class Life{
           for (int col = (c-1); col <= (c+1) ; col++) {
               checks++;
               if (!(row == r && col == c) && board[row][col] == 'X'){
-                  impotantcounts ++;
-                   System.out.println(impotantcounts);
+//                  impotantcounts ++;
+//                   System.out.println(impotantcounts);
                    count++;
               }
     	    }//end column loop
     	}//end row loop
-      System.out.print("Count ");
-      System.out.println(count);
-      System.out.print("Checks");
-      System.out.println(checks);
-      return count;
+  return count;
+
+//  The following lines of code can be used for error
+//  analysis to check for the correct numer of counts
+//  and checks
+
+//      System.out.print("Count ");
+//      System.out.println(count);
+//      System.out.print("Checks");
+//      System.out.println(checks);
+
   }
 
     /*
@@ -89,18 +95,17 @@ class Life{
     public static char getNextGenCell(char[][] board,int r, int c){
 	// calculate the number of living neighbors around board[r][c]
     int numberOfNeighbours = countNeighbours( board , r, c);
-    
-    if (countNeighbours( board , r, c) == 3){
+    if (numberOfNeighbours == 3){
         return 'X';
-    }else if (countNeighbours( board , r, c) > 3){
+    }else if (numberOfNeighbours > 3){
         return '0';
-    }else if (countNeighbours( board, r, c) < 2 ){
+    }else if (numberOfNeighbours < 2 ){
         return '0';
-    }else if (countNeighbours( board, r, c) ==2 && board[r][c] == 'X'){
+    }else if (numberOfNeighbours ==2 && board[r][c] == 'X'){
         return 'X';
     }
-     else
-          return 'R';
+      return '0';
+
   }//end getNextGenCell
 
 
@@ -122,12 +127,13 @@ class Life{
 // Sets the new generation values
   for (int row = 1; row < (board.length-1); row++) {
 	    for (int col = 1; col < (board[row].length-1); col++) {
-      newBoard[row][col] = getNextGenCell(board, row, col);
-      System.out.print("Row ");
-      System.out.print(row);
-      System.out.print(", col ");
-      System.out.println(col);
-    }// end column loop
+// The commented out code was used to error check
+//        System.out.print("Row ");
+//        System.out.print(row);
+//        System.out.print(", col ");
+//        System.out.println(col);
+        newBoard[row][col] = getNextGenCell(board, row, col);
+      }// end column loop
   }//end row loop
   return newBoard;
 
@@ -139,6 +145,8 @@ class Life{
   int choice = 1;
   Scanner sc = new Scanner(System.in);
 
+  // the board is created with an extra row and column
+  // on the boarder to allow for easier neighbour counting
   board = createNewBoard(12,12);
 	printBoard(board);
   setCell(board, 0, 1, 'X');
