@@ -63,7 +63,7 @@ class Life{
 //    if (r>=0 && r<(board.length -1) && c>=0 && c< (board[r].length - 1)){
       for (int row = (r-1); row < (r+1); row++) {
     	    for (int col = (c-1); c < (c+1) ; c++) {
-    		      if (!(row == r&& col == c) && board[r][c] == "X"){
+    		      if (!(row == r&& col == c) && board[r][c] == 'X'){
                    count = count + 1;
               }
     	    }//end column loop
@@ -81,14 +81,15 @@ class Life{
 	// calculate the number of living neighbors around board[r][c]
 
     if (countNeighbours( board , r, c) == 3){
-        return "X";
+        return 'X';
     }else if (countNeighbours( board , r, c) > 3){
-        return " ";
+        return ' ';
     }else if (countNeighbours( board, r, c) < 2 ){
-        return " ";
-    }else if (countNeighbours( board, r, c) ==2 && board[r][c] == X){
-        return X;
+        return ' ';
+    }else if (countNeighbours( board, r, c) ==2 && board[r][c] == 'X'){
+        return 'X';
     }//end if
+        return 'p';
   }//end countNeighbours
 
 
@@ -124,7 +125,8 @@ class Life{
 
   public static void main(String[] args) {
 	char[][] board;
-	board = createNewBoard(12,12);
+  char var ='X';
+  board = createNewBoard(12,12);
 	printBoard(board);
 
   }
